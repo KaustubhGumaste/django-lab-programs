@@ -1,14 +1,19 @@
 from django.shortcuts import render
 
-def home(request):
-    result = None
+def prime_form(request):
+    return render(request, 'prime/prime_form.html')
 
-    if request.method == "POST":
-        n = int(request.POST.get("num"))
+def prime_result(request):
+    n = int(request.GET.get('number'))
 
-        if n < 2:
-            result = False
+    if n < 2:
+        result = f"{n} is NOT a Prime number"
+    else:
+        for i in range(2, int(n**0.5)+1):
+            if n % i == 0:
+                result = f"{n} is NOT a Prime number"
+                break
         else:
-            result = all(n % i != 0 for i in range(2, int(n**0.5)+1))
+            result = f"{n} is a Prime number"
 
-    return render(request,'prime.html',{'result':result})
+    return render(request, 'prime/prime_result.html', {'result': result})
