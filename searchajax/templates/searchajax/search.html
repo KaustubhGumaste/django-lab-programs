@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Students</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+<h1>Search Student</h1>
+
+<input type="text" id="search" placeholder="Enter student name">
+
+<div id="result"></div>
+
+<script>
+
+$("#search").keyup(function(){
+
+let query = $(this).val();
+
+$.ajax({
+url: "api/",
+data: {query: query},
+
+success: function(data){
+
+let html = "";
+
+data.results.forEach(function(s){
+
+html += "<p>";
+html += "<b>Name:</b> " + s.name + "<br>";
+html += "<b>Courses:</b> " + s.courses.join(", ");
+html += "</p><hr>";
+
+});
+
+$("#result").html(html);
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

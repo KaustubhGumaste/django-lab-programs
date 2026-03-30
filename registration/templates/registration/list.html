@@ -1,0 +1,13 @@
+<h1>Registered Students</h1>
+
+<a href="/registration/register/">Register New</a>
+<br><br>
+
+<a href="/registration/csv/">Download CSV</a>
+<br><br>
+
+{% for s in object_list %}
+<a href="{{s.id}}">
+{{s.first_name}} {{s.last_name}}
+</a><br>
+{% endfor %}

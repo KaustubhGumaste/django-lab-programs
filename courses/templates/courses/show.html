@@ -1,0 +1,14 @@
+<h1>Students in Courses</h1>
+
+{% for c in courses %}
+<h2>{{c.name}}</h2>
+
+<ul>
+{% for s in c.students.all %}
+<li>{{s.first_name}} {{s.last_name}}</li>
+{% empty %}
+<li>No students</li>
+{% endfor %}
+</ul>
+
+{% endfor %}
