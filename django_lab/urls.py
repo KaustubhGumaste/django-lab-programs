@@ -8,4 +8,7 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('ajax/', include('ajaxform.urls')),
     path('search/', include('searchajax.urls')),
+
+    path('squares/', include('squares.urls')),
+    path('vowels/', include('vowels.urls')),
 ]

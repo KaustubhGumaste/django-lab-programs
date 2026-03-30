@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import vc
+from . import views
 
 urlpatterns = [
-path('<str:sentence>/', vc),
+    path('<str:text>/', views.vowels),
 ]
